@@ -23,6 +23,7 @@ class ViewController: UIViewController {
        let st = UITextField()
         st.layer.cornerRadius = 10
         st.clipsToBounds = true
+        st.delegate = self
         st.backgroundColor = UIColor.white
         st.placeholder = "Search"
         st.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
@@ -80,9 +81,28 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    // MARK: - Search Function
+    
+    func findNearby(by query: String) {
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = query
+        request.region = mapView.region
+        
+        let search = MKLocalSearch(request: request)
+        search.start { resp, fault in
+            guard let value = resp, fault == nil else {
+                return
+            }
+            print(value.mapItems)
+        }
+    }
 
 }
 
+// MARK: - Location Extensions
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         checkLocAuth()
@@ -96,6 +116,19 @@ extension ViewController: CLLocationManagerDelegate {
         
     }
     
-    
+}
 
+// MARK: - TextField Extensions
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let text = textField.text ?? ""
+        if !text.isEmpty {
+            textField.resignFirstResponder()
+            // Find nearby places
+            
+            findNearby(by: text)
+        }
+        return true
+    }
 }
