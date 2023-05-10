@@ -278,6 +278,7 @@
 				DEVELOPMENT_TEAM = HM3JVVUNFD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindersKeepers/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "FindersKeepers requires locatin access to show nearby point of interest.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -305,6 +306,7 @@
 				DEVELOPMENT_TEAM = HM3JVVUNFD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindersKeepers/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "FindersKeepers requires locatin access to show nearby point of interest.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

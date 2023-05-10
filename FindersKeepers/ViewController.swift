@@ -10,6 +10,8 @@ import MapKit
 class ViewController: UIViewController {
 
     
+    var locationManager: CLLocationManager?
+    
     lazy var mapView: MKMapView = {
        let mp = MKMapView()
         mp.showsUserLocation = true
@@ -33,7 +35,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // Do any additional setup after loading the view.
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestWhenInUseAuthorization() // till using
+        locationManager?.requestLocation()
+        locationManager?.requestAlwaysAuthorization()
     }
 
     func setupUI() {
@@ -57,3 +63,12 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+    }
+}
