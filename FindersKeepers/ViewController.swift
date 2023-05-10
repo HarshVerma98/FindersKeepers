@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization() // till using
         locationManager?.requestLocation()
-        locationManager?.requestAlwaysAuthorization()
+        
     }
 
     func setupUI() {
@@ -60,15 +60,42 @@ class ViewController: UIViewController {
         mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         mapView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+    
+    // MARK: - Permission defined function
+    
+    func checkLocAuth() {
+        guard let locMgr = locationManager, let loc = locationManager?.location else {return}
+        
+        switch locMgr.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            print("")
+            let region = MKCoordinateRegion(center: loc.coordinate, latitudinalMeters: 750, longitudinalMeters: 750)
+            mapView.setRegion(region, animated: true)
+        case .denied:
+            print("")
+        case .notDetermined, .restricted:
+            print("")
+        @unknown default:
+            print("")
+            
+        }
+    }
 
 }
 
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+        checkLocAuth()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
     }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+    }
+    
+    
+
 }
