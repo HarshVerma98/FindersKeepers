@@ -16,6 +16,7 @@
 		952BB0572A0BDBCF00A0C94B /* LocationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BB0562A0BDBCF00A0C94B /* LocationExt.swift */; };
 		954D488A2A0C79E7000FDFBC /* PlacesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954D48892A0C79E7000FDFBC /* PlacesTVC.swift */; };
 		954D488C2A0C86E4000FDFBC /* PlacesDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954D488B2A0C86E4000FDFBC /* PlacesDetailVC.swift */; };
+		954D488E2A0C8E7F000FDFBC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954D488D2A0C8E7F000FDFBC /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		952BB0562A0BDBCF00A0C94B /* LocationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExt.swift; sourceTree = "<group>"; };
 		954D48892A0C79E7000FDFBC /* PlacesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTVC.swift; sourceTree = "<group>"; };
 		954D488B2A0C86E4000FDFBC /* PlacesDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDetailVC.swift; sourceTree = "<group>"; };
+		954D488D2A0C8E7F000FDFBC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +66,41 @@
 			children = (
 				952BB0402A0BBF1E00A0C94B /* AppDelegate.swift */,
 				952BB0422A0BBF1E00A0C94B /* SceneDelegate.swift */,
-				952BB0442A0BBF1E00A0C94B /* ViewController.swift */,
+				954D488F2A0C8F25000FDFBC /* Controllers */,
 				952BB0492A0BBF1F00A0C94B /* Assets.xcassets */,
 				952BB04B2A0BBF1F00A0C94B /* LaunchScreen.storyboard */,
 				952BB04E2A0BBF1F00A0C94B /* Info.plist */,
-				952BB0542A0BDB0500A0C94B /* PlaceAnnotation.swift */,
-				952BB0562A0BDBCF00A0C94B /* LocationExt.swift */,
+				954D48912A0C8F48000FDFBC /* Model */,
+				954D48902A0C8F37000FDFBC /* Extensions */,
+			);
+			path = FindersKeepers;
+			sourceTree = "<group>";
+		};
+		954D488F2A0C8F25000FDFBC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				952BB0442A0BBF1E00A0C94B /* ViewController.swift */,
 				954D48892A0C79E7000FDFBC /* PlacesTVC.swift */,
 				954D488B2A0C86E4000FDFBC /* PlacesDetailVC.swift */,
 			);
-			path = FindersKeepers;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		954D48902A0C8F37000FDFBC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				952BB0562A0BDBCF00A0C94B /* LocationExt.swift */,
+				954D488D2A0C8E7F000FDFBC /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		954D48912A0C8F48000FDFBC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				952BB0542A0BDB0500A0C94B /* PlaceAnnotation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +177,7 @@
 				954D488A2A0C79E7000FDFBC /* PlacesTVC.swift in Sources */,
 				952BB0552A0BDB0500A0C94B /* PlaceAnnotation.swift in Sources */,
 				952BB0452A0BBF1E00A0C94B /* ViewController.swift in Sources */,
+				954D488E2A0C8E7F000FDFBC /* StringExtension.swift in Sources */,
 				952BB0412A0BBF1E00A0C94B /* AppDelegate.swift in Sources */,
 				954D488C2A0C86E4000FDFBC /* PlacesDetailVC.swift in Sources */,
 				952BB0432A0BBF1E00A0C94B /* SceneDelegate.swift in Sources */,

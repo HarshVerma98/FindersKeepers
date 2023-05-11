@@ -79,10 +79,28 @@ class PlacesDetailVC: UIViewController {
         contactSV.translatesAutoresizingMaskIntoConstraints = false
         contactSV.axis = .horizontal
         contactSV.spacing = UIStackView.spacingUseSystem
+        
+        directionBtn.addTarget(self, action: #selector(getDirection), for: .touchUpInside)
+        callBtn.addTarget(self, action: #selector(getCall), for: .touchUpInside)
         contactSV.addArrangedSubview(directionBtn)
         contactSV.addArrangedSubview(callBtn)
         
+        
+        
         sv.addArrangedSubview(contactSV)
         view.addSubview(sv)
+    }
+    
+    @objc func getDirection(_ sender: UIButton) {
+        let coordinate = place.location.coordinate
+        guard let url = URL(string: "http://maps.apple.com/?daddr=\(coordinate.latitude),\(coordinate.longitude)") else { return  }
+        UIApplication.shared.open(url)
+    }
+    
+    @objc func getCall(_ sender: UIButton) {
+        guard let url = URL(string: "tell:// \(place.phone.formatter)") else {
+            return
+        }
+        UIApplication.shared.open(url)
     }
 }
