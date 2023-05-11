@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 class PlacesTVC: UITableViewController {
     
-    var location: CLLocation?
+    var location: CLLocation
     let places: [PlaceAnnotation]
     
     init(userLocation: CLLocation, places: [PlaceAnnotation]) {
@@ -25,6 +25,15 @@ class PlacesTVC: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func calculateDistance(from: CLLocation, to: CLLocation) -> CLLocationDistance {
+        from.distance(from: to)
+    }
+    
+    func formatDistanceData(_ distance: CLLocationDistance) -> String {
+        let km = Measurement(value: distance, unit: UnitLength.kilometers)
+        return km.converted(to: .kilometers).formatted()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return places.count
     }
@@ -34,7 +43,7 @@ class PlacesTVC: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
         content.text = places[indexPath.row].name
-        content.secondaryText = "Something"
+        content.secondaryText = formatDistanceData(calculateDistance(from: location, to: places[indexPath.row].location))
         cell.contentConfiguration = content
         return cell
     }
