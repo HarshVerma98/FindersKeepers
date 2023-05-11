@@ -97,10 +97,25 @@ class ViewController: UIViewController {
                 return
             }
             let place = resp?.mapItems.map(PlaceAnnotation.init)
-//            print(value.mapItems)
+            print(value.mapItems)
             place?.forEach({ plc in
                 self?.mapView.addAnnotation(plc)
             })
+            self?.popVC(place: place!)
+        }
+    }
+    
+    // MARK: - VC Method
+    func popVC(place: [PlaceAnnotation]) {
+       guard let uLocation = locationManager?.location else {
+            return
+        }
+        let vc = PlacesTVC(userLocation: uLocation, places: place)
+        vc.modalPresentationStyle = .pageSheet
+        if let sheet = vc.sheetPresentationController {
+            sheet.prefersGrabberVisible = true
+            sheet.detents = [.medium(), .large()]
+            present(vc, animated: true)
         }
     }
 
