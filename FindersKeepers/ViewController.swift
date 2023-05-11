@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     
     var locationManager: CLLocationManager?
-    
+    var places: [PlaceAnnotation] = []
     lazy var mapView: MKMapView = {
        let mp = MKMapView()
         mp.showsUserLocation = true
@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization() // till using
         locationManager?.requestLocation()
+        mapView.delegate = self
         
     }
 
@@ -96,12 +97,12 @@ class ViewController: UIViewController {
             guard let value = resp, fault == nil else {
                 return
             }
-            let place = resp?.mapItems.map(PlaceAnnotation.init)
+            self?.places = value.mapItems.map(PlaceAnnotation.init)
             print(value.mapItems)
-            place?.forEach({ plc in
+            self?.places.forEach({ plc in
                 self?.mapView.addAnnotation(plc)
             })
-            self?.popVC(place: place!)
+            self?.popVC(place: self!.places)
         }
     }
     
@@ -117,6 +118,13 @@ class ViewController: UIViewController {
             sheet.detents = [.medium(), .large()]
             present(vc, animated: true)
         }
+    }
+    
+    func clearAnnotationSelection() {
+        self.places = self.places.map({ place in
+            place.isSelected = false
+            return place
+        })
     }
 
 }
@@ -149,5 +157,19 @@ extension ViewController: UITextFieldDelegate {
             findNearby(by: text)
         }
         return true
+    }
+}
+
+// MARK: - MAPKit Delegate
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        clearAnnotationSelection() 
+        guard let selectedAnnotation = annotation as? PlaceAnnotation else {
+            return
+        }
+       let placeAnnotation = self.places.first(where: {$0.id == selectedAnnotation.id})
+        placeAnnotation?.isSelected = true
+        popVC(place: places)
     }
 }
