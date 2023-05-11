@@ -15,6 +15,7 @@
 		952BB0552A0BDB0500A0C94B /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BB0542A0BDB0500A0C94B /* PlaceAnnotation.swift */; };
 		952BB0572A0BDBCF00A0C94B /* LocationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BB0562A0BDBCF00A0C94B /* LocationExt.swift */; };
 		954D488A2A0C79E7000FDFBC /* PlacesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954D48892A0C79E7000FDFBC /* PlacesTVC.swift */; };
+		954D488C2A0C86E4000FDFBC /* PlacesDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954D488B2A0C86E4000FDFBC /* PlacesDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		952BB0542A0BDB0500A0C94B /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		952BB0562A0BDBCF00A0C94B /* LocationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExt.swift; sourceTree = "<group>"; };
 		954D48892A0C79E7000FDFBC /* PlacesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTVC.swift; sourceTree = "<group>"; };
+		954D488B2A0C86E4000FDFBC /* PlacesDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				952BB0542A0BDB0500A0C94B /* PlaceAnnotation.swift */,
 				952BB0562A0BDBCF00A0C94B /* LocationExt.swift */,
 				954D48892A0C79E7000FDFBC /* PlacesTVC.swift */,
+				954D488B2A0C86E4000FDFBC /* PlacesDetailVC.swift */,
 			);
 			path = FindersKeepers;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				952BB0552A0BDB0500A0C94B /* PlaceAnnotation.swift in Sources */,
 				952BB0452A0BBF1E00A0C94B /* ViewController.swift in Sources */,
 				952BB0412A0BBF1E00A0C94B /* AppDelegate.swift in Sources */,
+				954D488C2A0C86E4000FDFBC /* PlacesDetailVC.swift in Sources */,
 				952BB0432A0BBF1E00A0C94B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

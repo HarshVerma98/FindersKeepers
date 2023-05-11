@@ -56,4 +56,9 @@ class PlacesTVC: UITableViewController {
         cell.backgroundColor = places[indexPath.row].isSelected ? UIColor.lightGray : UIColor.cyan
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = PlacesDetailVC(place: places[indexPath.row])
+        present(detailVC, animated: true)
+    }
 }
